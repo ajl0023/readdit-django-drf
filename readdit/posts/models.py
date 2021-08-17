@@ -5,6 +5,7 @@ import uuid
 from django.contrib.auth.models import AbstractUser, UserManager, AbstractBaseUser, BaseUserManager
 from django.db.models.signals import pre_save
 from django.dispatch.dispatcher import receiver
+from django.db.models.expressions import Case, F, OuterRef, Subquery, Value, When, Window
 
 
 def assignId():
@@ -80,6 +81,10 @@ class Posts(models.Model):
         max_digits=20, decimal_places=8, blank=True, null=True)
     image = models.CharField(max_length=400, blank=True, null=True)
 
+    
+
+        # return Votes.objects.filter(postid=OuterRef(
+        #     'pk'), authorid=request.user.id).values('score')
     class Meta:
         managed = False
         db_table = 'posts'

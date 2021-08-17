@@ -1,0 +1,12 @@
+{
+    "prettier.disableLanguages": ["django-html"],
+    "beautify.language": {
+        "html": [
+            "django-html"
+        ]
+    },
+    "[django-html]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
